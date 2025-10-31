@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalle | Agente Vocal Inmobiliario - IA Pro</title>
+  <link rel="stylesheet" href="./assets/css/styles.css">
+    <script href="./assets/js/main.js"></script>
+    </head>
+<body>
+
+    <header>
+        <div class="container">
+            <h1 class="logo">Agentes **IA Pro**</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="index.html#destacados">Agentes</a></li>
+                    <li><a href="#demo">Demo</a></li>
+                    <li><a href="#contacto" class="btn-nav">Solicitar Demo</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        
+        <section class="product-hero">
+            <div class="container">
+                <p class="breadcrumbs">Inicio > Destacados</p>
+                <h2>**🗣️ El Agente Vocal** que Vende Inmuebles</h2>
+                <p class="sub-heading">Automatiza el 95% de las llamadas de agendamiento y cualificación. **Tu equipo, 24/7, sin descanso.**</p>
+            </div>
+        </section>
+
+        <section id="demo" class="product-visual">
+            <div class="container visual-grid">
+                
+                <div class="visual-content animado">
+                    <h3>**Escucha la Voz de tu Nuevo Agente**</h3>
+                    <p>La IA Vocal de Agentes IA Pro utiliza tecnología de voz natural avanzada, indistinguible de un agente humano. ¡Sin robots monótonos!</p>
+                    
+                    <div class="audio-demo">
+                        <p>Simulación de una llamada:</p>
+                        <div class="audio-control"></div>
+                        <p class="transcripcion">"Hola, hablo de Inmobiliaria Central. ¿Busca agendar una visita a la propiedad en la calle Sol, 45? Tengo disponibilidad hoy a las 17h..."</p>
+                    </div>
+
+                    <a href="#contacto" class="btn-primary large">¡Comenzar Pruebas GRATIS!</a>
+                </div>
+
+                <div class="visual-graphic animado">
+                     
+                </div>
+            </div>
+        </section>
+
+        <section class="caracteristicas">
+            <div class="container">
+                <h3>**📈 Funciones Clave** que Maximizan la Productividad</h3>
+                
+                <div class="feature-table animado">
+                    
+                    <div class="feature-item">
+                        <span class="icon-feat">⭐</span>
+                        <h4>**Cualificación Dinámica**</h4>
+                        <p>Identifica el presupuesto, urgencia y tipo de propiedad buscada en la misma llamada. **Adiós a los leads fríos.**</p>
+                    </div>
+                    
+                    <div class="feature-item">
+                        <span class="icon-feat">📅</span>
+                        <h4>**Sincronización de Calendarios**</h4>
+                        <p>Conexión directa con Google Calendar, Outlook y CRMs como Salesforce o HubSpot. La cita se agenda y se notifica en tiempo real.</p>
+                    </div>
+
+                    <div class="feature-item">
+                        <span class="icon-feat">🚀</span>
+                        <h4>**Manejo de Objeciones**</h4>
+                        <p>La IA está entrenada para manejar preguntas comunes y objeciones de clientes, manteniendo siempre una postura profesional y resolutiva.</p>
+                    </div>
+
+                    <div class="feature-item">
+                        <span class="icon-feat">📊</span>
+                        <h4>**Reportes de Cierre**</h4>
+                        <p>Genera informes diarios sobre llamadas perdidas, llamadas agendadas y motivos de objeción, optimizando tus estrategias.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+    </main>
+
+    <footer id="contacto">
+        <div class="container">
+            <p>&copy; 2025 Agentes IA Pro. **Automatización Inteligente**.</p>
+            <div class="social-links">
+                <a href="#">LinkedIn</a> | <a href="#">Twitter</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mantenemos el script de animación al scroll
+        document.addEventListener('DOMContentLoaded', () => {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target); 
+                    }
+                });
+            }, { threshold: 0.15 }); 
+
+            document.querySelectorAll('.visual-content, .visual-graphic, .feature-table').forEach(element => {
+                element.classList.add('animado'); // Asegura que tengan la clase base
+                observer.observe(element);
+            });
+        });
+    </script>
+</body>
+</html>

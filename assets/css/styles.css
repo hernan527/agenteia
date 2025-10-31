@@ -1,0 +1,963 @@
+/* VARIABLES Y RESET BÁSICO */
+:root {
+    --color-primary: #007BFF; /* Azul profesional */
+    --color-accent: #00FFC0; /* Cian vibrante para IA */
+    --color-dark: #1F2937;
+    --color-light: #F9FAFB;
+    --font-family: 'Arial', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* MODIFICAR en styles.css */
+body {
+    /* Cambiar la variable de fuente o añadir más fuentes fallback */
+    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+    line-height: 1.6;
+    background-color: white;
+    color: var(--color-dark);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* --- ENCABEZADO Y NAVEGACIÓN --- */
+header {
+    background-color: white;
+    padding: 15px 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.8em;
+    color: var(--color-dark);
+}
+
+.logo strong {
+    color: var(--color-primary); /* Destaca la 'IA' */
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+    align-items: center;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--color-dark);
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: var(--color-primary);
+}
+
+/* --- BOTONES (REUTILIZABLES) --- */
+.btn-primary, .btn-secondary, .btn-nav {
+    display: inline-block;
+    padding: 10px 25px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    text-align: center;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.btn-primary {
+    background-color: var(--color-primary);
+    color: white;
+    font-size: 1.1em;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background-color: var(--color-light);
+    color: var(--color-primary);
+    border: 2px solid var(--color-primary);
+    margin-top: 15px;
+}
+
+.btn-secondary:hover {
+    background-color: var(--color-primary);
+    color: white;
+}
+
+.btn-nav {
+    background-color: var(--color-accent);
+    color: var(--color-dark);
+    padding: 8px 18px;
+}
+
+.btn-nav:hover {
+    background-color: #00e6b3;
+}
+
+/* --- SECCIÓN HERO (PRINCIPAL) --- */
+/* --- EFECTO DE CÁMARA LENTA (para simular carga limpia) --- */
+.hero {
+    /* Mantenemos el estilo de fondo, padding, etc. */
+    opacity: 0; /* Opacidad inicial oculta */
+    transform: translateY(10px);
+    animation: fadeInSlideUp 0.8s ease-out forwards; /* Aplicar animación */
+    animation-delay: 0.2s; /* Retraso sutil */
+}
+
+@keyframes fadeInSlideUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hero h2 {
+    font-size: 3em;
+    margin-bottom: 15px;
+    color: var(--color-dark);
+}
+
+.hero p {
+    font-size: 1.25em;
+    color: #555;
+    margin-bottom: 30px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* --- SECCIÓN DE DESTACADOS (TARJETAS) --- */
+.destacados {
+    padding: 80px 0;
+    background-color: white;
+}
+
+.destacados h3 {
+    text-align: center;
+    font-size: 2.2em;
+    margin-bottom: 50px;
+    color: var(--color-dark);
+}
+
+.agentes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.agente-card {
+    background-color: var(--color-light);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    transition: transform 0.4s, box-shadow 0.4s;
+
+    /* Animación inicial (JS) */
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.agente-card.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.agente-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 
+        0 10px 25px rgba(0, 0, 0, 0.15), /* Sombra normal */
+        0 0 15px rgba(0, 255, 192, 0.4); /* Halo sutil con color de acento */
+}
+
+.agente-card h4 {
+    font-size: 1.5em;
+    color: var(--color-primary);
+    margin-bottom: 5px;
+}
+
+.agente-card .nicho {
+    color: #666;
+    font-style: italic;
+    margin-bottom: 15px;
+}
+
+.agente-card hr {
+    border: 0;
+    height: 1px;
+    background: #e0e0e0;
+    margin: 15px 0;
+}
+
+.agente-card ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.agente-card li {
+    padding: 8px 0;
+    border-bottom: 1px dashed #eee;
+}
+
+.agente-card li:last-child {
+    border-bottom: none;
+}
+
+/* Estilo especial para el Agente Vocal (el principal) */
+.agente-card.principal {
+    background-color: var(--color-dark);
+    color: white;
+    border: 3px solid var(--color-accent);
+}
+.agente-card.principal:hover {
+    transform: translateY(-10px);
+    box-shadow: 
+        0 10px 25px rgba(0, 0, 0, 0.3),
+        0 0 15px var(--color-accent);
+}
+.agente-card.principal h4 {
+    color: var(--color-accent);
+}
+
+.agente-card.principal .nicho {
+    color: #ccc;
+}
+
+.agente-card.principal .btn-secondary {
+    background-color: var(--color-accent);
+    color: var(--color-dark);
+    border-color: var(--color-accent);
+}
+
+.agente-card.principal .btn-secondary:hover {
+    background-color: white;
+    color: var(--color-dark);
+}
+
+
+/* --- PIE DE PÁGINA --- */
+/* --- MEJORAS DEL FOOTER --- */
+footer {
+    background-color: var(--color-dark);
+    color: white;
+    padding: 30px 0 0; /* Ajustamos el padding */
+    font-size: 0.9em;
+}
+
+footer .footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 40px;
+    padding-bottom: 30px;
+    border-bottom: 1px solid #333; /* Separador */
+}
+
+.logo-footer {
+    font-size: 1.5em;
+    color: white;
+    margin-bottom: 10px;
+}
+
+.logo-footer strong {
+    color: var(--color-accent);
+}
+
+.footer-col h5 {
+    font-size: 1.1em;
+    font-weight: bold;
+    color: var(--color-primary);
+    margin-bottom: 15px;
+}
+
+.footer-col ul {
+    list-style: none;
+}
+
+.footer-col li {
+    margin-bottom: 8px;
+}
+
+.footer-col a {
+    color: #ccc;
+    text-decoration: none;
+}
+
+.footer-col a:hover {
+    color: white;
+    text-decoration: underline;
+}
+
+.copyright {
+    background-color: #111; /* Barra de copyright más oscura */
+    padding: 15px 0;
+    text-align: center;
+}
+
+
+/* RESPONSIVE DESIGN BÁSICO */
+@media (max-width: 768px) {
+    .hero h2 {
+        font-size: 2em;
+    }
+    header .container {
+        flex-direction: column;
+        gap: 15px;
+    }
+    nav ul {
+        gap: 15px;
+    }
+    .btn-nav {
+        display: none; /* Ocultar en móvil para simplicidad */
+    }
+    footer .container {
+        flex-direction: column;
+        gap: 10px;
+    }
+        footer .footer-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+}
+/* ... (CÓDIGO CSS ANTERIOR: variables, reset, header, hero y destacados se mantienen) ... */
+
+/* --- NUEVA SECCIÓN "CÓMO FUNCIONA" (PROCESO) --- */
+.proceso {
+    padding: 80px 0;
+    background-color: var(--color-light); /* Fondo suave */
+    text-align: center;
+}
+
+.proceso h3 {
+    font-size: 2.2em;
+    margin-bottom: 50px;
+    color: var(--color-dark);
+}
+
+.pasos-grid {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.paso-card {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    flex: 1;
+    max-width: 350px;
+    border-top: 5px solid var(--color-primary);
+    
+    /* Estado inicial para la animación */
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.paso-card.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Retraso sutil para el efecto de cascada */
+.pasos-grid .paso-card:nth-child(2) {
+    transition-delay: 0.1s;
+}
+.pasos-grid .paso-card:nth-child(3) {
+    transition-delay: 0.2s;
+}
+
+.paso-card .icono {
+    font-size: 3em;
+    margin-bottom: 10px;
+    color: var(--color-accent);
+}
+
+.paso-card h4 {
+    color: var(--color-dark);
+    font-size: 1.4em;
+    margin-bottom: 10px;
+}
+
+.callout-proceso {
+    background-color: var(--color-primary);
+    color: white;
+    padding: 25px;
+    border-radius: 8px;
+    margin-top: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.callout-proceso p {
+    font-size: 1.2em;
+    font-weight: 500;
+}
+
+/* --- NUEVA SECCIÓN PRECIOS PREVIEW --- */
+.precios-preview {
+    padding: 60px 0;
+    text-align: center;
+    background: white;
+    border-bottom: 1px solid #eee;
+}
+
+.precios-preview h3 {
+    font-size: 2em;
+    margin-bottom: 10px;
+}
+
+.precios-preview .subtitulo-precios {
+    font-size: 1.1em;
+    color: #666;
+    margin-bottom: 30px;
+}
+
+.btn-secondary.large {
+    padding: 12px 30px;
+    font-size: 1.1em;
+}
+
+/* ... (CÓDIGO CSS ANTERIOR: footer y responsive se mantienen) ... */
+
+/* Responsive para "Cómo Funciona" */
+@media (max-width: 900px) {
+    .pasos-grid {
+        flex-direction: column;
+        align-items: center;
+    }
+    .callout-proceso {
+        flex-direction: column;
+        gap: 15px;
+    }
+}
+/* ... (CÓDIGO CSS ANTERIOR: variables, reset, header, etc. se mantienen) ... */
+
+/* --- ESTILOS ESPECÍFICOS DE PRODUCTO (agente-vocal.html) --- */
+
+.product-hero {
+    background-color: var(--color-dark);
+    color: white;
+    padding: 80px 0 50px;
+    text-align: center;
+}
+
+.product-hero .breadcrumbs {
+    font-size: 0.9em;
+    color: var(--color-accent);
+    margin-bottom: 10px;
+}
+
+.product-hero h2 {
+    font-size: 3.5em;
+    margin-bottom: 15px;
+}
+
+.product-hero .sub-heading {
+    font-size: 1.3em;
+    opacity: 0.8;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* SECCIÓN VISUAL Y DEMO */
+.product-visual {
+    padding: 60px 0;
+    background-color: white;
+}
+
+.visual-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: center;
+}
+
+.visual-content h3 {
+    font-size: 2em;
+    color: var(--color-primary);
+    margin-bottom: 20px;
+}
+
+.audio-demo {
+    margin: 30px 0;
+    padding: 20px;
+    background-color: var(--color-light);
+    border-radius: 8px;
+    border-left: 5px solid var(--color-accent);
+}
+
+.audio-demo p {
+    margin: 5px 0;
+}
+
+.audio-control {
+    font-size: 2.5em;
+    color: var(--color-primary);
+    cursor: pointer;
+    margin: 10px 0;
+}
+
+.transcripcion {
+    font-style: italic;
+    color: #555;
+    border-top: 1px dashed #ccc;
+    padding-top: 10px;
+    margin-top: 10px;
+}
+
+/* Estilos de la gráfica (para el Image tag) */
+.visual-graphic {
+    background-color: #f0f8ff; /* Color de fondo claro para el diagrama */
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    min-height: 350px; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* SECCIÓN DE CARACTERÍSTICAS */
+.caracteristicas {
+    padding: 60px 0;
+    background-color: var(--color-light);
+    text-align: center;
+}
+
+.caracteristicas h3 {
+    font-size: 2.2em;
+    margin-bottom: 40px;
+}
+
+.feature-table {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    text-align: left;
+    
+    /* Estado inicial para la animación de entrada */
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out 0.3s, transform 0.8s ease-out 0.3s;
+}
+
+.feature-table.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.feature-item {
+    background: white;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.icon-feat {
+    font-size: 2.5em;
+    color: var(--color-accent);
+    display: block;
+    margin-bottom: 10px;
+}
+
+.feature-item h4 {
+    font-size: 1.3em;
+    margin-bottom: 10px;
+    color: var(--color-primary);
+}
+
+/* --- ANIMACIONES GENERALES --- */
+.animado {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.animado.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 900px) {
+    .product-hero h2 {
+        font-size: 2.5em;
+    }
+    .visual-grid {
+        grid-template-columns: 1fr;
+    }
+    .visual-graphic {
+        order: -1; /* Mueve la imagen arriba en móvil */
+        min-height: 250px;
+    }
+}
+/* ... (CÓDIGO CSS ANTERIOR: se mantiene todo el código anterior) ... */
+
+/* --- NUEVA SECCIÓN CONTACTO Y DEMO --- */
+.contacto-demo {
+    padding: 100px 0;
+    background-color: white;
+}
+
+.contacto-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr; /* Más espacio para la información, un poco menos para el formulario */
+    gap: 60px;
+    align-items: flex-start;
+}
+
+.contacto-info h3 {
+    font-size: 2.5em;
+    color: var(--color-dark);
+    margin-bottom: 20px;
+}
+
+.contacto-info p {
+    font-size: 1.1em;
+    color: #555;
+    margin-bottom: 30px;
+}
+
+.beneficios-contacto ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.beneficios-contacto li {
+    font-size: 1em;
+    padding: 10px 0;
+    border-bottom: 1px dashed #eee;
+    color: var(--color-dark);
+}
+
+.beneficios-contacto li:last-child {
+    border-bottom: none;
+}
+
+.beneficios-contacto li span {
+    color: var(--color-accent);
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+/* ESTILOS DEL FORMULARIO */
+.formulario-wrapper {
+    background-color: var(--color-light);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    border-top: 5px solid var(--color-primary); /* Destaque */
+}
+
+.formulario-wrapper h4 {
+    font-size: 1.8em;
+    color: var(--color-primary);
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: var(--color-dark);
+    font-size: 0.95em;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    border-color: var(--color-primary);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.15);
+}
+
+.btn-primary.large {
+    width: 100%;
+    margin-top: 20px;
+    padding: 15px 0;
+    font-size: 1.2em;
+}
+
+/* Responsive para Contacto */
+@media (max-width: 900px) {
+    .contacto-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    .contacto-info {
+        text-align: center;
+    }
+    .beneficios-contacto {
+        margin-top: 20px;
+        text-align: left; /* Mantener la lista legible */
+    }
+}
+/* ... (CÓDIGO CSS ANTERIOR: se mantiene todo) ... */
+
+/* --- ESTILOS DE LA PÁGINA DE PRECIOS (precios.html) --- */
+
+.pricing-hero {
+    background-color: var(--color-dark);
+    color: white;
+    padding: 80px 0 50px;
+    text-align: center;
+}
+
+.pricing-hero h2 {
+    font-size: 3em;
+    margin-bottom: 15px;
+}
+
+.pricing-hero .sub-heading {
+    font-size: 1.2em;
+    opacity: 0.8;
+}
+
+.pricing-table {
+    padding: 80px 0;
+    background-color: var(--color-light);
+}
+
+.plans-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.plan-card {
+    background: white;
+    padding: 40px 30px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s, box-shadow 0.3s;
+    border-top: 4px solid #eee;
+    position: relative;
+    
+    /* Animación de entrada */
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.plan-card.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.plan-card h4 {
+    font-size: 1.8em;
+    color: var(--color-dark);
+    margin-bottom: 10px;
+}
+
+.etiqueta-plan {
+    display: block;
+    color: #666;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.precio {
+    font-size: 3.5em;
+    font-weight: bold;
+    color: var(--color-primary);
+    line-height: 1;
+    margin-bottom: 10px;
+}
+
+.frecuencia {
+    font-size: 0.4em;
+    color: #999;
+    font-weight: normal;
+}
+
+.descripcion {
+    color: #777;
+    margin-bottom: 25px;
+}
+
+.plan-card hr {
+    border: 0;
+    height: 1px;
+    background: #e0e0e0;
+    margin: 25px 0;
+}
+
+.features-list {
+    list-style: none;
+    padding: 0;
+    text-align: left;
+    margin-bottom: 30px;
+}
+
+.features-list li {
+    padding: 10px 0;
+    border-bottom: 1px dashed #f0f0f0;
+    display: flex;
+    align-items: center;
+}
+
+.icon-check, .icon-close {
+    font-size: 1.1em;
+    margin-right: 10px;
+}
+
+.icon-check {
+    color: var(--color-accent);
+    font-weight: bold;
+}
+
+.icon-close {
+    color: #ccc;
+}
+
+.features-list .disabled {
+    color: #999;
+    font-style: italic;
+}
+
+.btn-secondary.full-width, .btn-primary.full-width {
+    display: block;
+    width: 100%;
+}
+
+/* ESTILO PARA EL PLAN POPULAR/DESTACADO */
+.plan-card.popular {
+    transform: scale(1.05); /* Ligeramente más grande */
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+    border: 4px solid var(--color-primary);
+}
+
+.plan-card.popular:hover {
+    transform: scale(1.07);
+}
+
+.plan-card.popular .precio {
+    color: var(--color-accent); /* Precio en color de acento */
+}
+
+.popular-tag {
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--color-primary);
+    color: white;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.8em;
+    font-weight: bold;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* SECCIÓN FAQ */
+.faq-section {
+    padding: 40px 0;
+    text-align: center;
+    background-color: white;
+}
+
+.faq-section h4 {
+    color: var(--color-dark);
+    margin-bottom: 15px;
+}
+
+.faq-section p {
+    max-width: 800px;
+    margin: 10px auto;
+    color: #666;
+}
+
+/* Responsive para Precios */
+@media (max-width: 900px) {
+    .plan-card.popular {
+        transform: none; /* Quitar escala en móvil */
+        order: -1; /* Mover el plan popular al inicio */
+    }
+}
+/* --- ESTILOS DE VALIDACIÓN Y ERRORES (Añadir al final de styles.css) --- */
+
+.error-message {
+    color: #DC3545; /* Rojo de error */
+    font-size: 0.85em;
+    margin-top: 5px;
+    margin-bottom: 0;
+    font-weight: 500;
+}
+
+.form-group .input-error {
+    border: 2px solid #DC3545 !important; 
+    box-shadow: 0 0 0 3px rgba(220, 53, 69, 0.2);
+}
+
+.form-group input:focus.input-error {
+    border-color: #DC3545;
+    box-shadow: 0 0 0 3px rgba(220, 53, 69, 0.4);
+}
+
+/* --- ANIMACIÓN PARA EL BOTÓN CTA PRINCIPAL (Empezar Ahora) --- */
+@keyframes pulse {
+    0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(0, 255, 192, 0.4); }
+    70% { transform: scale(1.05); box-shadow: 0 0 0 10px rgba(0, 255, 192, 0); }
+    100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(0, 255, 192, 0); }
+}
+
+/* Aplicar la animación al botón de navegación */
+nav .btn-nav {
+    animation: pulse 1.5s infinite; /* Aplicar animación de pulso infinito */
+    border: 1px solid var(--color-accent);
+}
+
+nav .btn-nav:hover {
+    animation: none; /* Detener el pulso al pasar el cursor */
+    background-color: #00e6b3;
+}
+
+/* --- MEJORA DE ACCESIBILIDAD (A11Y) --- */
+/* Hacer visible el foco en elementos interactivos (botones, enlaces) */
+a:focus,
+button:focus,
+input:focus,
+select:focus {
+    outline: 2px solid var(--color-accent); /* Color cian para destacar */
+    outline-offset: 2px;
+}
+/* Asegura que los botones tienen un cursor indicativo */
+a[class^="btn"],
+button {
+    cursor: pointer;
+}

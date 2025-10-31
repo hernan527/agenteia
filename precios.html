@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Planes y Precios | Agentes IA Pro</title>
+  <link rel="stylesheet" href="./assets/css/styles.css">
+              <script href="./assets/js/main.js"></script>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <h1 class="logo">Agentes **IA Pro**</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="index.html#destacados">Agentes</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                    <li><a href="#" class="btn-nav">Empezar Ahora</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        
+        <section class="pricing-hero">
+            <div class="container">
+                <h2>**Inversión Inteligente:** Elige tu Plan de Automatización</h2>
+                <p class="sub-heading">Encuentra el plan de Agentes IA que se ajusta perfectamente a tu volumen operativo y potencial de crecimiento.</p>
+            </div>
+        </section>
+
+        <section class="pricing-table">
+            <div class="container">
+                
+                <div class="plans-grid">
+                    
+                    <article class="plan-card animado">
+                        <span class="etiqueta-plan">Inicio</span>
+                        <h4>**Plan Básico**</h4>
+                        <p class="precio">$299<span class="frecuencia">/mes</span></p>
+                        <p class="descripcion">Ideal para emprendedores e inmobiliarias con bajo volumen de llamadas.</p>
+                        <hr>
+                        <ul class="features-list">
+                            <li><span class="icon-check">✅</span> **Agente Vocal** (1.000 mins/mes)</li>
+                            <li><span class="icon-check">✅</span> Soporte por Email (48h)</li>
+                            <li><span class="icon-check">✅</span> Integración con **Google Calendar**</li>
+                            <li class="disabled"><span class="icon-close">❌</span> Reportes Avanzados de Venta</li>
+                            <li class="disabled"><span class="icon-close">❌</span> Agente Analista Incluido</li>
+                        </ul>
+                        <a href="#contacto" class="btn-secondary full-width">Comenzar</a>
+                    </article>
+
+                    <article class="plan-card animado popular">
+                        <span class="etiqueta-plan popular-tag">🎉 MÁS POPULAR</span>
+                        <h4>**Plan Pro**</h4>
+                        <p class="precio">$799<span class="frecuencia">/mes</span></p>
+                        <p class="descripcion">La solución completa para equipos en crecimiento que necesitan eficiencia total.</p>
+                        <hr>
+                        <ul class="features-list">
+                            <li><span class="icon-check">✅</span> **Agente Vocal** (5.000 mins/mes)</li>
+                            <li><span class="icon-check">✅</span> Soporte Prioritario (4h)</li>
+                            <li><span class="icon-check">✅</span> Integración con **CRM (HubSpot/Salesforce)**</li>
+                            <li><span class="icon-check">✅</span> Reportes Avanzados de Venta</li>
+                            <li><span class="icon-check">✅</span> **Agente Soporte Nivel 1** (Chat)</li>
+                        </ul>
+                        <a href="#contacto" class="btn-primary full-width">Contratar Pro</a>
+                    </article>
+
+                    <article class="plan-card animado">
+                        <span class="etiqueta-plan">Escala</span>
+                        <h4>**Plan Empresarial**</h4>
+                        <p class="precio">Personalizado</p>
+                        <p class="descripcion">Diseñado para grandes corporaciones con necesidades complejas y alto volumen.</p>
+                        <hr>
+                        <ul class="features-list">
+                            <li><span class="icon-check">✅</span> **Agente Vocal Ilimitado**</li>
+                            <li><span class="icon-check">✅</span> **Gestor de Cuenta Dedicado**</li>
+                            <li><span class="icon-check">✅</span> Integración **API Personalizada**</li>
+                            <li><span class="icon-check">✅</span> Acceso a todos los Agentes (incl. Analista)</li>
+                            <li><span class="icon-check">✅</span> SLA de **Uptime Garantizado**</li>
+                        </ul>
+                        <a href="#contacto" class="btn-secondary full-width">Contactar Ventas</a>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <section class="faq-section">
+            <div class="container">
+                <h4>**Preguntas Frecuentes sobre Consumo**</h4>
+                <p>Nuestros planes se basan en el consumo de **minutos de conversación** o **interacciones de chat**. El minuto vocal promedio para agendar una cita es de 1.5 minutos.</p>
+                <p>¿Necesitas más minutos? Los bloques adicionales se pueden adquirir a una tarifa reducida. <a href="#contacto">Contáctanos para una cotización</a>.</p>
+            </div>
+        </section>
+
+    </main>
+
+    <footer id="footer">
+        <div class="container">
+            <p>&copy; 2025 Agentes IA Pro. **Automatización Inteligente**.</p>
+            <div class="social-links">
+                <a href="#">LinkedIn</a> | <a href="#">Twitter</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simular la animación al cargar (reutiliza el CSS de animación)
+        document.addEventListener('DOMContentLoaded', () => {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target); 
+                    }
+                });
+            }, { threshold: 0.1 }); 
+
+            document.querySelectorAll('.plan-card').forEach(card => {
+                card.classList.add('animado');
+                observer.observe(card);
+            });
+        });
+    </script>
+</body>
+</html>
