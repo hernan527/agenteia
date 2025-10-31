@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalle | Agente Soporte Nivel 1 - IA Pro</title>
+    <link rel="stylesheet" href="./assets/css/styles.css">
+
+    <meta name="description" content="Agente IA de Soporte al Cliente Nivel 1 para E-commerce. Responde 99% de las FAQs instantáneamente en múltiples canales.">
+    </head>
+<body>
+
+    <header>
+        <div class="container">
+            <h1 class="logo">Agentes **IA Pro**</h1>
+            <nav>
+                <ul>
+                    <li><a href="#destacados">Destacados</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+<li><a href="index.html#contacto" class="btn-nav">Empezar Ahora</a></li>                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        
+        <section class="product-hero">
+            <div class="container">
+                <p class="breadcrumbs">Inicio > Destacados</p>
+                <h2>**💬 Soporte Instantáneo:** Agente Nivel 1 Chat/Multi-Canal</h2>
+                <p class="sub-heading">Reduce la carga de tu equipo de atención al cliente hasta en un **85%**. Operación 24/7 sin tiempo de espera.</p>
+            </div>
+        </section>
+
+        <section id="demo" class="product-visual">
+            <div class="container visual-grid">
+                
+                <div class="visual-content animado" data-delay="0.1">
+                    <h3>**Integra en Segundos, Responde al Instante**</h3>
+                    <p>Funciona perfectamente en tu sitio web, WhatsApp, Telegram o Facebook Messenger. Un único cerebro de IA manejando todas las consultas.</p>
+                    
+                    <div class="chat-demo">
+                        <p>Simulación de un flujo de chat:</p>
+                        <div class="chat-flow"></div>
+                        <p class="transcripcion">Cliente: "¿Cuál es la política de devolución?" | IA: "Hola, nuestro plazo es de 30 días con el embalaje original..."</p>
+                    </div>
+
+                    <a href="index.html#contacto" class="btn-primary large">Solicitar Demo y Prueba Gratuita</a>
+                </div>
+
+                <div class="visual-graphic animado" data-delay="0.2">
+                    
+                </div>
+            </div>
+        </section>
+
+        <section class="caracteristicas">
+            <div class="container">
+                <h3>**🛠️ Funciones Clave** para la Experiencia del Cliente</h3>
+                
+                <div class="feature-table animado" data-delay="0.3">
+                    
+                    <div class="feature-item">
+                        <span class="icon-feat">🗣️</span>
+                        <h4>**Entrenamiento en Contenido (FAQs)**</h4>
+                        <p>Aprende de tu base de conocimientos (archivos, manuales) para ofrecer respuestas precisas y consistentes.</p>
+                    </div>
+                    
+                    <div class="feature-item">
+                        <span class="icon-feat">🔄</span>
+                        <h4>**Escalamiento Humano Inteligente**</h4>
+                        <p>Sabe cuándo la consulta supera sus capacidades. Transfiere al agente humano con todo el historial de conversación.</p>
+                    </div>
+
+                    <div class="feature-item">
+                        <span class="icon-feat">🌐</span>
+                        <h4>**Soporte Multilingüe (20+ Idiomas)**</h4>
+                        <p>Atiende a clientes globales sin necesidad de contratar personal en cada idioma. Expansión sin fronteras.</p>
+                    </div>
+
+                    <div class="feature-item">
+                        <span class="icon-feat">🛒</span>
+                        <h4>**Asistencia a la Compra**</h4>
+                        <p>Guía al cliente a través del proceso de *checkout* y ayuda a recuperar carritos abandonados con recordatorios.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+    </main>
+
+    <footer>
+        </footer>
+
+    <script>
+        // Mantenemos el script de animación al scroll
+        document.addEventListener('DOMContentLoaded', () => {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target); 
+                    }
+                });
+            }, { threshold: 0.15 }); 
+
+            document.querySelectorAll('.visual-content, .visual-graphic, .feature-table').forEach(element => {
+                element.classList.add('animado'); // Asegura que tengan la clase base
+                observer.observe(element);
+            });
+        });
+    </script>
+    <script src="./assets/js/main.js"></script>
+</body>
+</html>

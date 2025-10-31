@@ -66,7 +66,7 @@
                             <li>**Escalamiento Dinámico:** Identifica problemas complejos y transfiere a soporte humano.</li>
                             <li>**Historial y Analíticas:** Genera reportes de los problemas más comunes.</li>
                         </ul>
-                        <a href="#" class="btn-secondary">Más Detalles</a>
+                        <a href="agente-soporte.html" class="btn-secondary">Más Detalles</a>
                     </article>
 
                     <article class="agente-card animado" data-delay="0.3">
@@ -79,7 +79,7 @@
                             <li>**Detección de Anomalías:** Identifica fraudes o picos inusuales en tus datos.</li>
                             <li>**Segmentación Avanzada:** Optimiza campañas de marketing basándose en el rendimiento.</li>
                         </ul>
-                        <a href="./agente-vocal.html" class="btn-secondary">Más Detalles</a>
+                        <a href="./agente-analista.html" class="btn-secondary">Más Detalles</a>
                     </article>
 
                 </div>

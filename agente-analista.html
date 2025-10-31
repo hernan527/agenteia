@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalle | Agente Analista de Mercado - IA Pro</title>
+    <link rel="stylesheet" href="./assets/css/styles.css">
+
+    <meta name="description" content="Agente IA Analista de Mercado. Pronostica tendencias, detecta anomalías y genera reportes ejecutivos automáticos para Finanzas y Marketing.">
+    </head>
+<body>
+
+    <header>
+        <div class="container">
+            <h1 class="logo">Agentes **IA Pro**</h1>
+            <nav>
+                <ul>
+                    <li><a href="#destacados">Destacados</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+<li><a href="index.html#contacto" class="btn-nav">Empezar Ahora</a></li>                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        
+        <section class="product-hero">
+            <div class="container">
+                <p class="breadcrumbs">Inicio > Destacados</p>
+                <h2>**📊 Estrategia Impulsada por IA:** Agente Analista de Mercado</h2>
+                <p class="sub-heading">Convierte tus datos brutos en decisiones de alto impacto. **Identifica tendencias y fraudes** antes de que escalen.</p>
+            </div>
+        </section>
+
+        <section id="demo" class="product-visual">
+            <div class="container visual-grid">
+                
+                <div class="visual-content animado" data-delay="0.1">
+                    <h3>**Predicción y Reporte Automático**</h3>
+                    <p>Se conecta a tus bases de datos (SQL, hojas de cálculo, CRMs) y genera resúmenes predictivos diarios o bajo demanda.</p>
+                    
+                    <div class="dashboard-demo">
+                        <p>Ejemplo de Pregunta/Respuesta IA:</p>
+                        <div class="ai-query"></div>
+                        <p class="transcripcion">IA: "Se proyecta un crecimiento del 12% en Q4, pero alertamos un riesgo de descenso del 5% en la línea de productos X."</p>
+                    </div>
+
+                    <a href="index.html#contacto" class="btn-primary large">Solicitar Auditoría de Datos GRATIS</a>
+                </div>
+
+                <div class="visual-graphic animado" data-delay="0.2">
+                    
+                </div>
+            </div>
+        </section>
+
+        <section class="caracteristicas">
+            <div class="container">
+                <h3>**🔭 Funciones Clave** para la Inteligencia de Negocio</h3>
+                
+                <div class="feature-table animado" data-delay="0.3">
+                    
+                    <div class="feature-item">
+                        <span class="icon-feat">🔍</span>
+                        <h4>**Detección de Fraude y Anomalías**</h4>
+                        <p>Monitoreo 24/7 de transacciones y patrones. Alerta en tiempo real sobre comportamientos inusuales o indicadores de riesgo.</p>
+                    </div>
+                    
+                    <div class="feature-item">
+                        <span class="icon-feat">🔮</span>
+                        <h4>**Modelado Predictivo (ML)**</h4>
+                        <p>Utiliza Machine Learning para pronosticar tendencias futuras, rendimiento de campañas y potencial de deserción de clientes.</p>
+                    </div>
+
+                    <div class="feature-item">
+                        <span class="icon-feat">🎯</span>
+                        <h4>**Segmentación y Personalización**</h4>
+                        <p>Recomienda automáticamente los segmentos de clientes más rentables para enfocarse en marketing y ventas.</p>
+                    </div>
+
+                    <div class="feature-item">
+                        <span class="icon-feat">💡</span>
+                        <h4>**Recomendaciones Accionables**</h4>
+                        <p>No solo reporta datos, sino que sugiere acciones concretas (ej. "Reducir la inversión en el canal X").</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+    </main>
+
+    <footer>
+        </footer>
+    <script>
+        // Mantenemos el script de animación al scroll
+        document.addEventListener('DOMContentLoaded', () => {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target); 
+                    }
+                });
+            }, { threshold: 0.15 }); 
+
+            document.querySelectorAll('.visual-content, .visual-graphic, .feature-table').forEach(element => {
+                element.classList.add('animado'); // Asegura que tengan la clase base
+                observer.observe(element);
+            });
+        });
+    </script>
+    <script src="./assets/js/main.js"></script>
+</body>
+</html>
