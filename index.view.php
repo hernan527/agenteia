@@ -11,8 +11,8 @@
 <meta property="og:url" content="https://www.tu-dominio.com">
 <meta property="og:image" content="https://www.tu-dominio.com/assets/img/og-image.jpg">
     <title>Agentes IA Pro - Automatiza tu Negocio</title>
-    <link rel="stylesheet" href="./assets/css/styles.css">
-              <script href="./assets/js/main.js"></script>
+    <link rel="stylesheet" href="/assets/css/styles.css">
+              <script href="/assets/js/main.js"></script>
 
 </head>
 <body>
@@ -79,7 +79,7 @@
                             <li>**Detección de Anomalías:** Identifica fraudes o picos inusuales en tus datos.</li>
                             <li>**Segmentación Avanzada:** Optimiza campañas de marketing basándose en el rendimiento.</li>
                         </ul>
-                        <a href="./agente-analista.html" class="btn-secondary">Más Detalles</a>
+                        <a href="/agente-analista.html" class="btn-secondary">Más Detalles</a>
                     </article>
 
                 </div>
@@ -122,7 +122,7 @@
             <div class="container">
                 <h3>**💲 Planes a tu Medida**</h3>
                 <p class="subtitulo-precios">Elige la solución que mejor se adapte a tu volumen de operaciones y empieza a ver resultados inmediatos.</p>
-                <a href="./precios.html" class="btn-secondary large">Ver Todos los Planes Detallados</a>
+                <a href="/precios.html" class="btn-secondary large">Ver Todos los Planes Detallados</a>
             </div>
         </section>
         
